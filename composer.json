@@ -1,6 +1,19 @@
 {
-  "name": "liip/cors",
-  "require": {
-    "barryvdh/laravel-cors": "0.11.3"
-  }
+    "name": "liip/cors",
+    "type": "october-plugin",
+    "description": "OctoberCMS CORS plugin",
+    "keywords": ["october", "cms", "cors", "api"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sascha Aeppli",
+            "email": "sascha.aeppli@liip.ch",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "composer/installers": "~1.0",
+        "barryvdh/laravel-cors": "0.11.3"
+    }
 }
