@@ -20,7 +20,7 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'cors',
+            'name'        => 'Cors',
             'description' => 'CORS pluign based on asm89/cors and barryvds/laravel-cors',
             'author'      => 'liip',
             'icon'        => 'icon-leaf'
