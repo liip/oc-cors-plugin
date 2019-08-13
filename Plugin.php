@@ -3,6 +3,7 @@
 use Asm89\Stack\CorsService;
 use Barryvdh\Cors\HandleCors;
 use Barryvdh\Cors\HandlePreflight;
+use Barryvdh\Cors\ServiceProvider as CorsServiceProvider;
 use Illuminate\Contracts\Http\Kernel;
 use System\Classes\PluginBase;
 use Config;
@@ -51,6 +52,9 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
+        // enable CORS middleware
+        $this->app['Illuminate\Contracts\Http\Kernel']->pushMiddleware(HandleCors::class);
+
         $this->bootPackages();
 
         $kernel = $this->app->make(Kernel::class);
