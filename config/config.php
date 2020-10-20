@@ -2,7 +2,7 @@
 
 return [
     'packages' => [
-        'barryvdh/cors' => [
+        'fruitcake/cors' => [
             'config_namespace' => 'cors',
             'config' => [
                 /*

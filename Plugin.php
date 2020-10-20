@@ -1,9 +1,11 @@
-<?php namespace Liip\Cors;
+<?php
+
+namespace Liip\Cors;
 
 use Asm89\Stack\CorsService;
-use Barryvdh\Cors\HandleCors;
-use Barryvdh\Cors\HandlePreflight;
-use Barryvdh\Cors\ServiceProvider as CorsServiceProvider;
+use Fruitcake\Cors\HandleCors;
+use Fruitcake\Cors\HandlePreflight;
+use Fruitcake\Cors\ServiceProvider as CorsServiceProvider;
 use Illuminate\Contracts\Http\Kernel;
 use System\Classes\PluginBase;
 use Config;
@@ -64,7 +66,8 @@ class Plugin extends PluginBase
         }
     }
 
-    public function bootPackages() {
+    public function bootPackages()
+    {
         // Get the namespace of the current plugin to use in accessing the Config of the plugin
         $pluginNamespace = str_replace('\\', '.', strtolower(__NAMESPACE__));
 
@@ -96,6 +99,6 @@ class Plugin extends PluginBase
         // pattern such as "library/*", making any string check convenient.
         $pattern = str_replace('\*', '.*', $pattern);
 
-        return '#^'.$pattern.'\z#u';
+        return '#^' . $pattern . '\z#u';
     }
 }
