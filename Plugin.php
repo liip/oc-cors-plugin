@@ -3,6 +3,7 @@
 namespace Liip\Cors;
 
 use System\Classes\PluginBase;
+use Illuminate\Contracts\Http\Kernel;
 
 /**
  * cors Plugin Information File
@@ -18,15 +19,15 @@ class Plugin extends PluginBase
     {
         return [
             'name'        => 'Cors',
-            'description' => 'CORS pluign based on fruitcake/laravel-cors',
+            'description' => 'CORS pluign that just works',
             'author'      => 'liip',
             'icon'        => 'icon-leaf'
         ];
-    }
+    }       
 
     public function register()
     {
-        $this->app->register(\Liip\Cors\Providers\CorsServiceProvider::class);
-        $this->app['router']->middleware('cors', \Fruitcake\Cors\HandleCors::class);        
+        $kernel = $this->app->make(Kernel::class);
+        $kernel->prependMiddleware(CorsMiddleware::class);
     }
 }
