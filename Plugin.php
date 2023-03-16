@@ -1,9 +1,8 @@
-<?php 
+<?php
 
 namespace Liip\Cors;
 
 use System\Classes\PluginBase;
-use Illuminate\Contracts\Http\Kernel;
 
 /**
  * cors Plugin Information File
@@ -23,11 +22,11 @@ class Plugin extends PluginBase
             'author'      => 'liip',
             'icon'        => 'icon-leaf'
         ];
-    }       
+    }
 
     public function register()
     {
-        $kernel = $this->app->make(Kernel::class);
-        $kernel->prependMiddleware(CorsMiddleware::class);
+        $this->app[\Illuminate\Contracts\Http\Kernel::class]
+            ->prependMiddleware(CorsMiddleware::class);
     }
 }
